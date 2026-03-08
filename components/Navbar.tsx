@@ -48,7 +48,11 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between text-white">
         {/* LEFT — LOGO */}
-        <div className="flex items-center gap-2 text-lg font-semibold tracking-tight">
+        <div className="flex md:hidden items-center gap-2 text-lg font-semibold tracking-tight">
+          <Lightbulb className="h-8 w-8 text-black" />
+          <span className="text-black">MindLume</span>
+        </div>
+        <div className="hidden md:flex items-center gap-2 text-lg font-semibold tracking-tight">
           <Lightbulb
             className="h-8 w-8 transition-all duration-200"
             style={{
