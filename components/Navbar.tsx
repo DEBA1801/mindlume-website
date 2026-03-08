@@ -142,7 +142,7 @@ export default function Navbar() {
               setOpen(false);
               setIsWaitlistOpen(true);
             }}
-            className="w-full bg-white text-black py-2 rounded-full mt-4"
+            className="w-full bg-black text-white py-2 rounded-full mt-4"
           >
             Join
           </button>

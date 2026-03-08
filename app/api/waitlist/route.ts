@@ -1,6 +1,8 @@
 import { google } from "googleapis";
 import { NextResponse } from "next/server";
 
+export const runtime = "nodejs";
+
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 8;
 const EMAIL_COOLDOWN_MS = 60 * 1000;
@@ -70,11 +72,38 @@ function checkEmailCooldown(email: string, now: number) {
   return { isLimited: false, retryAfterSeconds: 0 };
 }
 
+function getPublicWaitlistError(
+  error: unknown,
+  fallbackMessage: string,
+): string {
+  if (error instanceof Error) {
+    if (error.message.startsWith("Waitlist service is not configured.")) {
+      return error.message;
+    }
+  }
+
+  return fallbackMessage;
+}
+
 async function getSheetsClient() {
+  const clientEmail = process.env.GOOGLE_CLIENT_EMAIL?.trim();
+  const privateKeyRaw = process.env.GOOGLE_PRIVATE_KEY?.trim();
+  const sheetId = process.env.GOOGLE_SHEET_ID?.trim();
+
+  if (!clientEmail || !privateKeyRaw || !sheetId) {
+    throw new Error(
+      "Waitlist service is not configured. Missing GOOGLE_CLIENT_EMAIL, GOOGLE_PRIVATE_KEY, or GOOGLE_SHEET_ID.",
+    );
+  }
+
+  const privateKey = privateKeyRaw
+    .replace(/^"|"$/g, "")
+    .replace(/\\n/g, "\n");
+
   const auth = new google.auth.GoogleAuth({
     credentials: {
-      client_email: process.env.GOOGLE_CLIENT_EMAIL,
-      private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
+      client_email: clientEmail,
+      private_key: privateKey,
     },
     scopes: ["https://www.googleapis.com/auth/spreadsheets"],
   });
@@ -101,8 +130,12 @@ export async function GET() {
     return NextResponse.json({ count: uniqueEmails.size });
   } catch (error) {
     console.error("Error reading waitlist count:", error);
+    const message = getPublicWaitlistError(
+      error,
+      "Failed to fetch waitlist count.",
+    );
     return NextResponse.json(
-      { error: "Failed to fetch waitlist count." },
+      { error: message },
       { status: 500 },
     );
   }
@@ -175,6 +208,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Error writing to sheet:", error);
-    return NextResponse.json({ error: "Failed to add" }, { status: 500 });
+    const message = getPublicWaitlistError(error, "Failed to add");
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

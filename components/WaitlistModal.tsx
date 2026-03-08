@@ -139,8 +139,8 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     You&apos;re on the list
                   </p>
                   <p className="mt-2 text-sm leading-6 text-gray-600">
-                    Thanks for signing up. We&apos;ll send your early access invite
-                    as soon as MindLume is ready.
+                    Thanks for signing up. We&apos;ll send your early access
+                    invite as soon as MindLume is ready.
                   </p>
                   <button
                     type="button"
