@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Brain, FolderTree, Search, type LucideIcon } from "lucide-react";
 
 type FeatureHighlight = {
@@ -31,7 +31,7 @@ const featureHighlights: FeatureHighlight[] = [
   },
 ];
 
-const featureIconVariants = {
+const featureIconVariants: Variants = {
   rest: {
     rotateY: 0,
   },
