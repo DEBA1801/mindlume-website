@@ -6,25 +6,42 @@ import WaitlistModal from "@/components/WaitlistModal";
 import ThemeToggle from "@/components/ThemeToggle";
 import Link from "next/link";
 
+const navItems = [
+  { name: "Ideas", href: "#ideas" },
+  { name: "Features", href: "#features" },
+  { name: "How it Works", href: "#how-it-works" },
+  { name: "MindLume in Action", href: "#mindlume-in-action" },
+];
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [bulbProgress, setBulbProgress] = useState(0);
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
-
-  const navItems = [
-    { name: "Ideas", href: "#ideas" },
-    { name: "Features", href: "#features" },
-    { name: "How it Works", href: "#how-it-works" },
-    { name: "MindLume in Action", href: "#mindlume-in-action" },
-  ];
+  const [activeSection, setActiveSection] = useState("#ideas");
 
   useEffect(() => {
     const handleScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 20);
       setBulbProgress(Math.min(y / 120, 1));
+
+      const offsetY = y + 120;
+      let nextActive = navItems[0].href;
+
+      for (const item of navItems) {
+        const section = document.querySelector(item.href) as HTMLElement | null;
+        if (!section) {
+          continue;
+        }
+
+        if (offsetY >= section.offsetTop) {
+          nextActive = item.href;
+        }
+      }
+
+      setActiveSection(nextActive);
     };
 
     handleScroll();
@@ -118,7 +135,11 @@ export default function Navbar() {
             <a
               key={item.name}
               href={item.href}
-              className="text-black hover:text-indigo-900 transition dark:text-gray-100 dark:hover:text-indigo-300"
+              className={`transition ${
+                activeSection === item.href
+                  ? "text-indigo-700 dark:text-indigo-300 font-semibold"
+                  : "text-black hover:text-indigo-900 dark:text-gray-100 dark:hover:text-indigo-300"
+              }`}
             >
               {item.name}
             </a>
@@ -183,7 +204,11 @@ export default function Navbar() {
               key={item.name}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="block text-base hover:text-indigo-900 transition dark:hover:text-indigo-300"
+              className={`block text-base transition ${
+                activeSection === item.href
+                  ? "text-indigo-700 dark:text-indigo-300 font-semibold"
+                  : "hover:text-indigo-900 dark:hover:text-indigo-300"
+              }`}
             >
               {item.name}
             </a>

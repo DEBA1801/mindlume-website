@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import WaitlistModal from "@/components/WaitlistModal";
 
 export default function Home() {
@@ -38,9 +39,13 @@ export default function Home() {
             </button>
           </div>
 
-          <img
-            src="https://placehold.co/1200x600"
-            className="rounded-2xl shadow-xl mx-auto"
+          <Image
+            src="/images/capture.png"
+            alt="MindLume product preview interface"
+            width={1200}
+            height={600}
+            sizes="(max-width: 768px) 92vw, 1200px"
+            className="rounded-2xl shadow-xl mx-auto h-auto w-full"
           />
         </div>
       </section>

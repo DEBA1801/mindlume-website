@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type TouchEvent } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -118,10 +119,13 @@ export default function Testimonials() {
 
             {/* PROFILE */}
             <div className="flex items-center gap-4">
-              <img
+              <Image
                 src={active.avatar}
                 alt={`${active.name} avatar`}
-                className="w-10 h-10 rounded-full"
+                width={40}
+                height={40}
+                sizes="40px"
+                className="h-10 w-10 rounded-full"
               />
 
               <div>

@@ -2,13 +2,14 @@
 
 import { useState, useEffect, useRef, type TouchEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const slides = [
   {
     title: "Capture ideas while the conversation flows.",
     text: "Take quick notes during meetings, brainstorming sessions, or discussions. MindLume keeps everything organized so you can stay focused on the conversation instead of worrying about losing ideas.",
     bg: "from-indigo-500 via-purple-500 to-blue-500",
-    image: "/images/meeting.jpg",
+    image: "/images/Meeting.jpg",
   },
   {
     title: "Turn a rough thought into a clearer idea.",
@@ -148,9 +149,18 @@ export default function FeatureSlider() {
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 1.03, opacity: 0 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${slides[index].image})` }}
-                />
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={slides[index].image}
+                    alt={slides[index].title}
+                    fill
+                    priority={index === 0}
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, 1200px"
+                    className="object-cover"
+                  />
+                </motion.div>
               )}
 
               <div className="absolute inset-0 bg-black/50" />
