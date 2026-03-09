@@ -13,10 +13,10 @@ export default function HeroSection({
   waitlistCount,
 }: HeroSectionProps) {
   return (
-    <section className="bg-black relative overflow-hidden py-28 text-center">
+    <section className="bg-black dark:bg-gray-950 relative overflow-hidden py-28 text-center">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-[-220px] h-[540px] w-[980px] -translate-x-1/2 rounded-full bg-gradient-to-r from-sky-100/70 via-white to-indigo-100/70 blur-3xl" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/75 to-white" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/75 to-white dark:from-gray-950/40 dark:via-gray-950/70 dark:to-gray-950" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
@@ -33,7 +33,7 @@ export default function HeroSection({
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-xl text-gray-800 max-w-2xl mx-auto mb-10"
+          className="text-xl text-gray-800 dark:text-gray-300 max-w-2xl mx-auto mb-10"
         >
           Ideas often live in fragments - notes, reminders, half-finished
           thoughts. MindLume turns them into a connected system where ideas grow
@@ -50,12 +50,12 @@ export default function HeroSection({
 
           <a
             href="#ideas"
-            className="border border-gray-300 px-6 py-3 rounded-xl hover:bg-gray-100 transition"
+            className="border border-gray-300 dark:border-white/20 px-6 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-900 transition"
           >
             Learn More
           </a>
         </div>
-        <p className="text-md text-gray-700">
+        <p className="text-md text-gray-700 dark:text-gray-300">
           Join the waitlist — early users get priority access.
           {typeof waitlistCount === "number"
             ? ` ${waitlistCount.toLocaleString()} people already joined.`

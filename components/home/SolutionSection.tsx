@@ -19,7 +19,7 @@ export default function SolutionSection() {
             Your ideas. Organized and expanded by AI
           </h2>
 
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-600 dark:text-gray-300 text-lg">
             MindLume helps you capture ideas, organize knowledge, and explore
             your thinking with AI that understands the context of your notes.
           </p>

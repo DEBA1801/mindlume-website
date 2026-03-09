@@ -100,7 +100,7 @@ export default function HowItWorksSection() {
 
         <div className="relative z-10 max-w-6xl mx-auto px-8 py-24">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-4xl md:text-5xl font-semibold">
+            <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-gray-900">
               How{" "}
               <motion.span
                 style={{
@@ -116,7 +116,7 @@ export default function HowItWorksSection() {
               Works
             </h2>
 
-            <p className="text-gray-700 mt-4 text-lg">
+            <p className="text-gray-700 dark:text-gray-200 mt-4 text-lg">
               A simple workflow that captures ideas, organizes knowledge, and
               helps you think deeper with AI.
             </p>
@@ -131,12 +131,12 @@ export default function HowItWorksSection() {
                   whileHover={{ x: 4 }}
                   className={`cursor-pointer rounded-xl px-5 py-4 transition ${
                     activeFeature === index
-                      ? "bg-white shadow-md"
-                      : "bg-white/60 hover:bg-white/80"
+                      ? "bg-white dark:bg-gray-900 shadow-md"
+                      : "bg-white/60 hover:bg-white/80 dark:bg-gray-900/60 dark:hover:bg-gray-900/80"
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <feature.icon className="w-5 h-5 text-gray-700" />
+                    <feature.icon className="w-5 h-5 text-gray-700 dark:text-gray-200" />
                     <h3 className="text-md font-semibold">{feature.title}</h3>
                   </div>
                 </motion.div>
@@ -148,12 +148,12 @@ export default function HowItWorksSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="bg-white/80 backdrop-blur rounded-3xl p-10 shadow-lg"
+              className="bg-white/80 dark:bg-gray-900/80 backdrop-blur rounded-3xl p-10 shadow-lg"
             >
               <h3 className="text-2xl font-semibold mb-4">
                 {workflowFeatures[activeFeature].title}
               </h3>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 {workflowFeatures[activeFeature].description}
               </p>
 

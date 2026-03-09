@@ -98,18 +98,18 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
           >
-            <div className="bg-white rounded-3xl shadow-2xl p-10 w-full max-w-md relative">
+            <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-10 w-full max-w-md relative border border-transparent dark:border-white/10">
               {/* CLOSE BUTTON */}
               <button
                 onClick={onClose}
-                className="absolute top-5 right-5 text-gray-500"
+                className="absolute top-5 right-5 text-gray-500 dark:text-gray-400"
               >
                 ✕
               </button>
 
               <h2 className="text-2xl font-semibold mb-2">Join the Waitlist</h2>
 
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 dark:text-gray-300 mb-6">
                 Be among the first to try MindLume.
               </p>
 
@@ -117,9 +117,9 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="rounded-2xl border border-gray-200 bg-gradient-to-b from-white to-gray-50 p-6 text-center"
+                  className="rounded-2xl border border-gray-200 dark:border-white/10 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 p-6 text-center"
                 >
-                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-black text-white shadow-[0_12px_30px_rgba(0,0,0,0.18)]">
+                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-black text-white dark:bg-white dark:text-gray-900 shadow-[0_12px_30px_rgba(0,0,0,0.18)]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -135,17 +135,17 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                       />
                     </svg>
                   </div>
-                  <p className="text-xl font-semibold tracking-tight text-gray-900">
+                  <p className="text-xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">
                     You&apos;re on the list
                   </p>
-                  <p className="mt-2 text-sm leading-6 text-gray-600">
+                  <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">
                     Thanks for signing up. We&apos;ll send your early access
                     invite as soon as MindLume is ready.
                   </p>
                   <button
                     type="button"
                     onClick={onClose}
-                    className="mt-6 w-full rounded-xl bg-black py-3 text-white"
+                    className="mt-6 w-full rounded-xl bg-black py-3 text-white dark:bg-white dark:text-gray-900"
                   >
                     Done
                   </button>
@@ -155,7 +155,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                   <input
                     type="text"
                     placeholder="Your name"
-                    className="w-full border rounded-lg px-4 py-3"
+                    className="w-full border border-gray-300 dark:border-white/15 rounded-lg px-4 py-3 bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100"
                     value={name}
                     onChange={(event) => setName(event.target.value)}
                     required
@@ -164,7 +164,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                   <input
                     type="email"
                     placeholder="Your email"
-                    className="w-full border rounded-lg px-4 py-3"
+                    className="w-full border border-gray-300 dark:border-white/15 rounded-lg px-4 py-3 bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100"
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
                     required
@@ -173,7 +173,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                   <input
                     type="text"
                     placeholder="Role (optional)"
-                    className="w-full border rounded-lg px-4 py-3"
+                    className="w-full border border-gray-300 dark:border-white/15 rounded-lg px-4 py-3 bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100"
                     value={role}
                     onChange={(event) => setRole(event.target.value)}
                   />
@@ -181,7 +181,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-black text-white py-3 rounded-lg disabled:opacity-50"
+                    className="w-full bg-black text-white py-3 rounded-lg disabled:opacity-50 dark:bg-white dark:text-gray-900"
                   >
                     {isSubmitting ? "Submitting..." : "Join Waitlist"}
                   </button>
@@ -193,7 +193,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                   <button
                     type="button"
                     onClick={onClose}
-                    className="w-full border border-gray-300 py-3 rounded-lg"
+                    className="w-full border border-gray-300 dark:border-white/15 py-3 rounded-lg text-gray-900 dark:text-gray-100"
                   >
                     Close
                   </button>

@@ -40,7 +40,7 @@ export default function ProblemSection() {
   ];
 
   return (
-    <section id="ideas" className="bg-gray-50 py-24">
+    <section id="ideas" className="bg-gray-50 dark:bg-gray-900 py-24">
       <div className="mx-auto max-w-6xl px-6">
         <h2 className="mb-6 text-center text-3xl font-semibold">
           Your ideas are scattered everywhere
@@ -52,18 +52,18 @@ export default function ProblemSection() {
               key={`mobile-${card.title}`}
               whileHover={{ y: -4, scale: 1.01 }}
               transition={{ type: "spring", stiffness: 280, damping: 22 }}
-              className="group min-w-[82%] snap-center rounded-2xl border bg-white p-5 shadow-sm text-center"
+              className="group min-w-[82%] snap-center rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-950 p-5 shadow-sm text-center"
             >
               <motion.div
                 whileHover={{ rotate: [0, -6, 4, 0] }}
                 transition={{ duration: 0.45, ease: "easeOut" }}
                 className={`mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${card.tone}`}
               >
-                <card.icon className="h-6 w-6 text-gray-700" />
+                <card.icon className="h-6 w-6 text-gray-700 dark:text-gray-700" />
               </motion.div>
 
               <h3 className="mb-2 font-semibold">{card.title}</h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-600 dark:text-gray-300">
                 Valuable knowledge often ends up scattered across apps and
                 tools.
               </p>
@@ -82,16 +82,16 @@ export default function ProblemSection() {
                   "0 18px 40px rgba(15, 23, 42, 0.12), 0 4px 14px rgba(15, 23, 42, 0.08)",
               }}
               transition={{ type: "spring", stiffness: 250, damping: 20 }}
-              className="group relative overflow-hidden rounded-2xl border bg-white p-5 shadow-sm text-center"
+              className="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-950 p-5 shadow-sm text-center"
             >
               <div
                 className={`mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${card.tone}`}
               >
-                <card.icon className="h-6 w-6 text-gray-700" />
+                <card.icon className="h-6 w-6 text-gray-700 dark:text-gray-700" />
               </div>
 
               <h3 className="mb-2 font-semibold">{card.title}</h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-600 dark:text-gray-300">
                 Valuable knowledge often ends up scattered across apps and
                 tools.
               </p>

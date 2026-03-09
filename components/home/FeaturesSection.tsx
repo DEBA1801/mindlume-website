@@ -50,7 +50,7 @@ function FeatureCard({ feature }: { feature: FeatureHighlight }) {
       initial="rest"
       whileHover="hover"
       animate="rest"
-      className="group relative overflow-hidden bg-white p-8 rounded-2xl border shadow-sm hover:shadow-lg transition text-center"
+      className="group relative overflow-hidden bg-white dark:bg-gray-950 p-8 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-lg transition text-center"
     >
       <motion.div
         variants={featureIconVariants}
@@ -65,11 +65,11 @@ function FeatureCard({ feature }: { feature: FeatureHighlight }) {
           style={{ transformStyle: "preserve-3d" }}
         >
           <feature.icon
-            className="absolute inset-0 h-7 w-7 text-gray-800"
+            className="absolute inset-0 h-7 w-7 text-gray-800 dark:text-gray-100"
             style={{ backfaceVisibility: "hidden" }}
           />
           <feature.icon
-            className="absolute inset-0 h-7 w-7 text-gray-800"
+            className="absolute inset-0 h-7 w-7 text-gray-800 dark:text-gray-100"
             style={{
               backfaceVisibility: "hidden",
               transform: "rotateY(180deg)",
@@ -79,14 +79,14 @@ function FeatureCard({ feature }: { feature: FeatureHighlight }) {
       </motion.div>
 
       <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-      <p className="text-gray-600">{feature.description}</p>
+      <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
     </motion.div>
   );
 }
 
 export default function FeaturesSection() {
   return (
-    <section id="features" className="bg-gray-50 py-24">
+    <section id="features" className="bg-gray-50 dark:bg-gray-900 py-24">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-3xl font-semibold text-center mb-16">
           Powerful features for better thinking

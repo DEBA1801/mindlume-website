@@ -37,17 +37,17 @@ export default function ProductMock() {
   }, []);
 
   return (
-    <div className="bg-white rounded-2xl shadow-2xl border overflow-hidden">
+    <div className="bg-white dark:bg-gray-950 rounded-2xl shadow-2xl border border-gray-200 dark:border-white/10 overflow-hidden">
       {/* Window Bar */}
 
-      <div className="flex items-center gap-2 px-4 py-3 border-b bg-gray-50">
+      <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-gray-900">
         <div className="flex gap-2">
           <div className="w-3 h-3 bg-red-400 rounded-full" />
           <div className="w-3 h-3 bg-yellow-400 rounded-full" />
           <div className="w-3 h-3 bg-green-400 rounded-full" />
         </div>
 
-        <div className="text-sm text-gray-500 ml-4">Mindlume Workspace</div>
+        <div className="text-sm text-gray-500 dark:text-gray-400 ml-4">Mindlume Workspace</div>
       </div>
 
       {/* MAIN GRID */}
@@ -55,12 +55,12 @@ export default function ProductMock() {
       <div className="grid grid-cols-1 md:grid-cols-3 min-h-[420px]">
         {/* LEFT PANEL — USER NOTES */}
 
-        <div className="border-r p-6">
-          <div className="text-lg font-semibold text-gray-700 mb-4">
+        <div className="border-r border-gray-200 dark:border-white/10 p-6">
+          <div className="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">
             User Notes
           </div>
 
-          <div className="bg-gray-50 rounded-xl p-6 text-sm text-gray-700 leading-relaxed">
+          <div className="bg-gray-50 dark:bg-gray-900 rounded-xl p-6 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
             <p>
               <span className="font-semibold">Idea:</span> Build an AI system
               that helps founders validate startup ideas quickly using market
@@ -83,25 +83,25 @@ export default function ProductMock() {
 
         {/* MIDDLE PANEL — RESOURCES */}
 
-        <div className="border-r bg-gray-50 p-6">
-          <div className="text-lg font-semibold text-gray-700 mb-6">
+        <div className="border-r border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-gray-900 p-6">
+          <div className="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-6">
             Resources
           </div>
 
           <div className="space-y-4">
-            <div className="bg-white border rounded-xl px-4 py-3 text-sm text-gray-600 flex  hover:shadow-sm transition">
+            <div className="bg-white dark:bg-gray-950 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm text-gray-600 dark:text-gray-300 flex  hover:shadow-sm transition">
               🔗 Hackers discussion
             </div>
 
-            <div className="bg-white border rounded-xl px-4 py-3 text-sm text-gray-600 flex hover:shadow-sm transition">
+            <div className="bg-white dark:bg-gray-950 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm text-gray-600 dark:text-gray-300 flex hover:shadow-sm transition">
               📄 Market Research PDF
             </div>
 
-            <div className="bg-white border rounded-xl px-4 py-3 text-sm text-gray-600 flex hover:shadow-sm transition">
+            <div className="bg-white dark:bg-gray-950 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm text-gray-600 dark:text-gray-300 flex hover:shadow-sm transition">
               🖼 Screenshot of user feedback
             </div>
 
-            <div className="bg-white border rounded-xl px-4 py-3 text-sm text-gray-600 flex hover:shadow-sm transition">
+            <div className="bg-white dark:bg-gray-950 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm text-gray-600 dark:text-gray-300 flex hover:shadow-sm transition">
               🔗 Google Trends data
             </div>
           </div>
@@ -110,13 +110,13 @@ export default function ProductMock() {
         {/* RIGHT PANEL — AI THINKING PARTNER */}
 
         <div className="flex h-full flex-col p-6">
-          <div className="mb-4 text-lg font-semibold text-gray-700">
+          <div className="mb-4 text-lg font-semibold text-gray-700 dark:text-gray-200">
             AI Thinking Partner
           </div>
 
           {/* User Question */}
 
-          <div className="mb-[10px] rounded-xl bg-gray-100 p-3 text-sm text-gray-700">
+          <div className="mb-[10px] rounded-xl bg-gray-100 dark:bg-gray-900 p-3 text-sm text-gray-700 dark:text-gray-300">
             Based on my notes and resources, how could I validate this idea?
           </div>
 

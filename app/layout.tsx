@@ -35,7 +35,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.className} antialiased`} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (() => {
+                try {
+                  const storedTheme = localStorage.getItem("theme");
+                  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                  const shouldUseDark = storedTheme ? storedTheme === "dark" : prefersDark;
+                  document.documentElement.classList.toggle("dark", shouldUseDark);
+                } catch {}
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body
+        className={`${poppins.className} antialiased bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300`}
+        suppressHydrationWarning
+      >
         <Navbar />
 
         {children}

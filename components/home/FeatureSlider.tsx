@@ -170,7 +170,7 @@ export default function FeatureSlider() {
 
         {/* CONTROLS */}
         <div className="mt-8 flex items-center justify-center">
-          <div className="flex items-center gap-3 rounded-full bg-gray-200 px-4 py-3">
+          <div className="flex items-center gap-3 rounded-full bg-gray-200 dark:bg-gray-800 px-4 py-3">
             {slides.map((_, i) => (
               <button
                 key={i}
@@ -178,14 +178,14 @@ export default function FeatureSlider() {
                 aria-label={`Go to slide ${i + 1}`}
                 className={`relative h-2 rounded-full transition-all duration-300 ${
                   index === i
-                    ? "w-12 bg-gray-500/35 overflow-hidden"
-                    : "w-2 bg-gray-500/60 hover:bg-gray-500/80"
+                    ? "w-12 bg-gray-500/35 dark:bg-gray-500/50 overflow-hidden"
+                    : "w-2 bg-gray-500/60 hover:bg-gray-500/80 dark:bg-gray-500/70"
                 }`}
               >
                 {index === i && (
                   <motion.span
                     key={`${index}-${isPlaying ? "play" : "pause"}`}
-                    className="absolute inset-y-0 left-0 rounded-full bg-gray-700"
+                    className="absolute inset-y-0 left-0 rounded-full bg-gray-700 dark:bg-gray-300"
                     style={{ width: `${progress * 100}%` }}
                   />
                 )}
@@ -195,7 +195,7 @@ export default function FeatureSlider() {
             <button
               onClick={() => setIsPlaying((prev) => !prev)}
               aria-label={isPlaying ? "Pause slider" : "Play slider"}
-              className="ml-2 flex h-10 w-10 items-center justify-center rounded-full bg-gray-900 text-white"
+              className="ml-2 flex h-10 w-10 items-center justify-center rounded-full bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900"
             >
               {isPlaying ? "❚❚" : "▶"}
             </button>

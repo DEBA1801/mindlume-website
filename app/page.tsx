@@ -37,7 +37,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="bg-white text-gray-900">
+    <main className="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">
       <HeroSection
         onOpenWaitlist={() => setIsWaitlistOpen(true)}
         waitlistCount={waitlistCount}

@@ -91,7 +91,7 @@ export default function Testimonials() {
     <section className="py-2 mb-20 flex justify-center">
       <div className="max-w-5xl w-full px-6 text-center">
         {/* HEADER */}
-        <p className="text-sm text-gray-500 mb-3">
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
           Trusted by thinkers, founders, and researchers
         </p>
 
@@ -139,7 +139,7 @@ export default function Testimonials() {
               key={i}
               onClick={() => setIndex(i)}
               className={`h-2 rounded-full transition-all ${
-                index === i ? "bg-black w-6" : "bg-gray-300 w-2"
+                index === i ? "bg-black dark:bg-white w-6" : "bg-gray-300 dark:bg-gray-700 w-2"
               }`}
             />
           ))}
